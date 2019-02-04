@@ -97,6 +97,24 @@ vehiculos puede contener hasta 100 elementos */
         return null;
     }
 
+    //método alquilarVehiculos
+    public void alquilarVehiculo(String matricula, String nif, int dias) {
+        Cliente cliente = getCliente(nif);
+        Vehiculo vehiculo = getVehiculo(matricula);
+// busca el cliente con el NIF dado en el array
+// clientes y el vehículo con la matrícula dada en el
+// array vehiculos, si el vehículo está disponible se
+// alquila con la fecha actual, que se obtiene
+// ejecutando los métodos diaHoy(), mesHoy() y
+// añoHoy(), cuya declaración no se incluye
+        if (vehiculo.isDisponible()) {
+            vehiculo.setDisponible(false);
+            this.alquileres[this.totalAlquileres] = new VehiculoAlquilado(cliente, vehiculo, 15, 3, 2018, dias);
+
+            this.totalAlquileres++;
+        }
+    }
+
     //getters y setters
     public String getCif() {
         return cif;
