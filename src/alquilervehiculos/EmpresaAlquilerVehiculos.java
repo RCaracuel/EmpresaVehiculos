@@ -56,24 +56,47 @@ vehiculos puede contener hasta 100 elementos */
 
     //método registrar vehículo
     public void registrarVehiculo(Vehiculo nuevo) {
-this.vehiculos[this.totalVehiculos] = nuevo;
-this.totalVehiculos++;
-}
+        this.vehiculos[this.totalVehiculos] = nuevo;
+        this.totalVehiculos++;
+    }
+
     //Método imprimir clientes
     public void imprimirClientes() {
-System.out.println("NIF cliente\tNombre\n");
-for (int i=0; i<this.totalClientes; i++)
-System.out.println(clientes[i].getNif()+"\t"+clientes[i].getNombre());
-}
-    
+        System.out.println("NIF cliente\tNombre\n");
+        for (int i = 0; i < this.totalClientes; i++) {
+            System.out.println(clientes[i].getNif() + "\t" + clientes[i].getNombre());
+        }
+    }
+
     //método imprimir vehículos
-    
     public void imprimirVehiculos() {
-    System.out.println("Matricula\tModelo\tColor\tImporte\tDisponible\n");
-    for (int i=0; i<this.totalVehiculos; i++)
-    System.out.println(vehiculos[i].toString());
-}
-    
+        System.out.println("Matricula\tModelo\tColor\tImporte\tDisponible\n");
+        for (int i = 0; i < this.totalVehiculos; i++) {
+            System.out.println(vehiculos[i].toString());
+        }
+    }
+
+    //Método getCliente
+    private Cliente getCliente(String nif) {
+        for (int i = 0; i < this.getTotalClientes(); i++) {
+            if (this.clientes[i].getNif().equals(nif)) {
+                return this.clientes[i];
+            }
+
+        }
+        return null;
+    }
+
+    //Método getVehiculos
+    private Vehiculo getVehiculo(String matricula) {
+        for (int i = 0; i < this.getTotalVehiculos(); i++) {
+            if (this.vehiculos[i].getMatricula().equals(matricula)) {
+                return this.vehiculos[i];
+            }
+        }
+        return null;
+    }
+
     //getters y setters
     public String getCif() {
         return cif;
