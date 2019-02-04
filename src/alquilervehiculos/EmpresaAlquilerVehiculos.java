@@ -33,7 +33,7 @@ VehiculoAlquilado */
 /* Constructor parametrizado donde se establece que el total de clientes
 será 50, igual que el total de vehiculos disponibles. El histórico de
 vehiculos puede contener hasta 100 elementos */
-   public EmpresaAlquilerVehiculos(String cif, String nombre, String paginaWeb) {
+    public EmpresaAlquilerVehiculos(String cif, String nombre, String paginaWeb) {
         this.cif = cif;
         this.nombre = nombre;
         this.paginaWeb = paginaWeb;
@@ -47,9 +47,14 @@ vehiculos puede contener hasta 100 elementos */
         this.totalAlquileres = 0;
         this.alquileres = new VehiculoAlquilado[100]; // apuntan a null
     }
-   
-   //getters y setters
 
+    //método registrarCliente
+    public void registrarCliente(Cliente nuevo) {
+        this.clientes[this.totalClientes] = nuevo;
+        this.totalClientes++;
+    }
+
+    //getters y setters
     public String getCif() {
         return cif;
     }
@@ -126,7 +131,5 @@ vehiculos puede contener hasta 100 elementos */
     public String toString() {
         return "EmpresaAlquilerVehiculos{" + "cif=" + cif + ", nombre=" + nombre + ", paginaWeb=" + paginaWeb + ", totalClientes=" + totalClientes + ", clientes=" + clientes + ", totalVehiculos=" + totalVehiculos + ", vehiculos=" + vehiculos + ", totalAlquileres=" + totalAlquileres + ", alquileres=" + alquileres + '}';
     }
-   
-    
-    
+
 }
