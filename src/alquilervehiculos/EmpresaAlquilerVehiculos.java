@@ -66,6 +66,14 @@ for (int i=0; i<this.totalClientes; i++)
 System.out.println(clientes[i].getNif()+"\t"+clientes[i].getNombre());
 }
     
+    //método imprimir vehículos
+    
+    public void imprimirVehiculos() {
+    System.out.println("Matricula\tModelo\tColor\tImporte\tDisponible\n");
+    for (int i=0; i<this.totalVehiculos; i++)
+    System.out.println(vehiculos[i].toString());
+}
+    
     //getters y setters
     public String getCif() {
         return cif;
