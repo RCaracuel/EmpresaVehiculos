@@ -54,6 +54,12 @@ vehiculos puede contener hasta 100 elementos */
         this.totalClientes++;
     }
 
+    //método registrar vehículo
+    public void registrarVehiculo(Vehiculo nuevo) {
+this.vehiculos[this.totalVehiculos] = nuevo;
+this.totalVehiculos++;
+}
+    
     //getters y setters
     public String getCif() {
         return cif;
