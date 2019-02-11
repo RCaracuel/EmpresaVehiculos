@@ -63,15 +63,34 @@ vehiculos puede contener hasta 100 elementos */
     //Método imprimir clientes
     public void imprimirClientes() {
         System.out.println("NIF cliente\tNombre\n");
-        for (int i = 0; i < this.totalClientes; i++) {
+        for (int i = 0; i < this.clientes.length; i++) {
             System.out.println(clientes[i].getNif() + "\t" + clientes[i].getNombre());
         }
     }
-
+    
+    //Método que rellene vehiculos aleatorios
+    public EmpresaAlquilerVehiculos rellenarVehiculos(EmpresaAlquilerVehiculos aux){
+        
+        for (int i = 0; i <aux.vehiculos.length; i++) {
+            aux.vehiculos[i]=new Vehiculo();
+         //   System.out.println(aux.vehiculos[i]);
+        }
+        
+        return aux;
+    }
+    
+    //Método que rellene clientes aleatorios
+    public EmpresaAlquilerVehiculos rellenarClientes(EmpresaAlquilerVehiculos aux){
+        
+        for (int i = 0; i <this.clientes.length; i++) {
+            aux.clientes[i]=new Cliente();
+        }
+        return aux;
+    }
     //método imprimir vehículos
     public void imprimirVehiculos() {
         System.out.println("Matricula\tModelo\tColor\tImporte\tDisponible\n");
-        for (int i = 0; i < this.totalVehiculos; i++) {
+        for (int i = 0; i < this.vehiculos.length; i++) {
             System.out.println(vehiculos[i].toString());
         }
     }
@@ -205,4 +224,14 @@ vehiculos puede contener hasta 100 elementos */
         return "EmpresaAlquilerVehiculos{" + "cif=" + cif + ", nombre=" + nombre + ", paginaWeb=" + paginaWeb + ", totalClientes=" + totalClientes + ", clientes=" + clientes + ", totalVehiculos=" + totalVehiculos + ", vehiculos=" + vehiculos + ", totalAlquileres=" + totalAlquileres + ", alquileres=" + alquileres + '}';
     }
 
+    public static void main(String[] args) {
+        
+        EmpresaAlquilerVehiculos prueba= new EmpresaAlquilerVehiculos("iouiuhi","Rosa","wwww.iowjfjhweof.com");
+        
+        prueba.rellenarVehiculos(prueba);
+        prueba.imprimirVehiculos();
+        System.out.println("---------------------------------");
+        prueba.rellenarClientes(prueba);
+        prueba.imprimirClientes();
+    }
 }

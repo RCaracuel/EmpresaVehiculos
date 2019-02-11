@@ -5,18 +5,42 @@
  */
 package alquilervehiculos;
 
+import java.util.Random;
+
 /**
  *
  * @author Rosa
  */
 public class Cliente {
     
-    private String nif;
+private String nif;
 private String nombre;
 private String apellidos;
 
 //Constructor parametrizado
 
+    public Cliente(){
+        
+        Random rnd=new Random();
+        String[] nombreArray={"María","Antonio","Pepa","Roberta","Facundo", "Noelia", "Miguel", "Isi","Bernardo","Paco"};
+        String[] apellidoArray={"Cabrales","Pérez","Calderón","Rupia","Jimenez","Gonzalez","Cabeza","Bocanegra","Ledezma","Caracuel"};
+        
+        int[] nifArray=new int[8];
+        
+        for (int i = 0; i <nifArray.length; i++) {
+            nifArray[i]=rnd.nextInt(10);
+        }
+        
+        String nifS="";
+        for (int i = 0; i <nifArray.length; i++) {
+            nifS+=Integer.toString(nifArray[i]);
+        }
+        int letra=rnd.nextInt(90-65+1)+65;
+        this.nif=nifS+(char)letra;
+        this.nombre=nombreArray[rnd.nextInt(9)];
+        this.apellidos=apellidoArray[rnd.nextInt(9)]+" "+apellidoArray[rnd.nextInt(9)];
+    }
+    
     public Cliente(String nif, String nombre, String apellidos) {
         this.nif = nif;
         this.nombre = nombre;

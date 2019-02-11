@@ -41,5 +41,13 @@ public class MisVehiculos {
         easydrive.imprimirClientes();
 // imprime el catálogo de vehículos de easydrive
         easydrive.imprimirVehiculos();
+        
+        
+        Vehiculo uno= new Vehiculo();
+        
+        System.out.println(uno);
+        Cliente clUno= new Cliente();
+        
+        System.out.println(clUno);
     }
 }
