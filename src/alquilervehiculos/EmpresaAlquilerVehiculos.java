@@ -87,6 +87,23 @@ vehiculos puede contener hasta 100 elementos */
         }
         return aux;
     }
+    public void rellenarVehiculos(){
+        
+        for (int i = 0; i <this.vehiculos.length; i++) {
+            this.vehiculos[i]=new Vehiculo();
+         //   System.out.println(aux.vehiculos[i]);
+        }
+        
+    }
+    
+    //Método que rellene clientes aleatorios
+    public void rellenarClientes(){
+        
+        for (int i = 0; i <this.clientes.length; i++) {
+            this.clientes[i]=new Cliente();
+        }
+
+    }
     //método imprimir vehículos
     public void imprimirVehiculos() {
         System.out.println("Matricula\tModelo\tColor\tImporte\tDisponible\n");
@@ -228,10 +245,17 @@ vehiculos puede contener hasta 100 elementos */
         
         EmpresaAlquilerVehiculos prueba= new EmpresaAlquilerVehiculos("iouiuhi","Rosa","wwww.iowjfjhweof.com");
         
+
         prueba.rellenarVehiculos(prueba);
         prueba.imprimirVehiculos();
         System.out.println("---------------------------------");
         prueba.rellenarClientes(prueba);
+
+        prueba.rellenarVehiculos();
+        prueba.imprimirVehiculos();
+        System.out.println("---------------------------------");
+        prueba.rellenarClientes();
+
         prueba.imprimirClientes();
     }
 }
