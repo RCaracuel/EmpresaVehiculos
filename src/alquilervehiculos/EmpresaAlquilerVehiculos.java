@@ -5,6 +5,8 @@
  */
 package alquilervehiculos;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Rosa
@@ -184,6 +186,50 @@ vehiculos puede contener hasta 100 elementos */
         }
     }
     
+    //Búsqueda binaria con clientes
+    public void busquedaNif(){
+        
+        Scanner teclado=new Scanner(System.in);
+        int mitad;
+        int limiteInferior = 0;
+        int limiteSuperior = this.clientes.length-1;
+        System.out.println("Introduzca nif a buscar");
+        String buscado=teclado.nextLine();
+        int valor=0;
+        boolean encontrado=false;
+        
+//        int numeroBusqueda = 11;
+//        boolean encontrado = false;
+//        while ((limiteInferior <= limiteSuperior) && (!encontrado)) {
+//            mitad = (limiteInferior + limiteSuperior) / 2;
+//            if (numeros[mitad] == numeroBusqueda) {
+//                encontrado = true; // ¡encontrado!
+//            } else if (numeros[mitad] > numeroBusqueda) {
+//                limiteSuperior = mitad - 1; // buscar en la primera mitad
+//            } else {
+//                limiteInferior = mitad + 1; // buscar en la segunda mitad
+//            }
+//        }
+        
+        while((limiteInferior<=limiteSuperior) && (!encontrado)){
+            mitad=(limiteInferior + limiteSuperior)/2;
+            valor=this.clientes[mitad].getNif().compareTo(buscado);
+            if(valor==0){
+                encontrado=true;
+            }else if(valor>0){
+                limiteInferior=mitad-1;
+            }else{
+                limiteSuperior=mitad-1;
+            }
+            
+            if(encontrado){
+                System.out.println("Lo hemos encontrado");
+            }else{
+                System.out.println("No ha habido suerte");
+            }
+        }
+}
+    
     //método recibirVehiculo
     public void recibirVehiculo(String matricula) {
 // busca el vehículo con la matrícula dada en el
@@ -295,5 +341,6 @@ vehiculos puede contener hasta 100 elementos */
         prueba.burbujaCliente(prueba);
         System.out.println("ORDENADOS LOS CLIENTES");
         prueba.imprimirClientes();
+        prueba.busquedaNif();
     }
 }
