@@ -169,7 +169,20 @@ vehiculos puede contener hasta 100 elementos */
             }
     
     //Método burbuja con vehiculos por matrícula
-    
+    public void burbujaVehiculos(EmpresaAlquilerVehiculos aux){
+        Vehiculo auxiliar;
+        int valor=0;
+        for (int i = 0; i <aux.vehiculos.length; i++) {
+            for (int j =i+1; j <aux.vehiculos.length; j++) {
+                valor=aux.vehiculos[i].getMatricula().compareTo(aux.vehiculos[j].getMatricula());
+                if(valor>0){
+                    auxiliar=aux.vehiculos[i];
+                    aux.vehiculos[i]=aux.vehiculos[j];
+                    aux.vehiculos[j]=auxiliar;
+                }
+            }
+        }
+    }
     
     //método recibirVehiculo
     public void recibirVehiculo(String matricula) {
