@@ -151,6 +151,26 @@ vehiculos puede contener hasta 100 elementos */
         }
     }
 
+    //Método burbuja con cliente por nif
+    public void burbujaCliente(EmpresaAlquilerVehiculos aux){
+        Cliente auxiliar;
+        int valor=0;
+        for (int i = 0; i <aux.clientes.length; i++) {
+            for (int j =i+1; j <aux.clientes.length; j++) {
+                valor=aux.clientes[i].getNif().compareToIgnoreCase(aux.clientes[j].getNif());
+                if(valor>0){
+                    auxiliar=aux.clientes[i];
+                    aux.clientes[i]=aux.clientes[j];
+                    aux.clientes[j]=auxiliar;
+                }
+            }
+        }
+        
+            }
+    
+    //Método burbuja con vehiculos por matrícula
+    
+    
     //método recibirVehiculo
     public void recibirVehiculo(String matricula) {
 // busca el vehículo con la matrícula dada en el
@@ -256,6 +276,11 @@ vehiculos puede contener hasta 100 elementos */
         System.out.println("---------------------------------");
         prueba.rellenarClientes();
 
+        prueba.imprimirClientes();
+        
+        System.out.println("------------------");
+        prueba.burbujaCliente(prueba);
+        System.out.println("ORDENADOS LOS CLIENTES");
         prueba.imprimirClientes();
     }
 }
