@@ -194,7 +194,6 @@ vehiculos puede contener hasta 100 elementos */
         int limiteSuperior = this.clientes.length-1;
     
         int valor=0;
-        boolean encontrado=false;
         
 //        int numeroBusqueda = 11;
 //        boolean encontrado = false;
