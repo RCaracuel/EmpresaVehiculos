@@ -93,7 +93,7 @@ vehiculos puede contener hasta 100 elementos */
         
         for (int i = 0; i <this.vehiculos.length; i++) {
             this.vehiculos[i]=new Vehiculo();
-         //   System.out.println(aux.vehiculos[i]);
+         // System.out.println(aux.vehiculos[i]);
         }
         
     }
@@ -154,16 +154,16 @@ vehiculos puede contener hasta 100 elementos */
     }
 
     //Método burbuja con cliente por nif
-    public void burbujaCliente(EmpresaAlquilerVehiculos aux){
+    public void burbujaCliente(){
         Cliente auxiliar;
         int valor=0;
-        for (int i = 0; i <aux.clientes.length; i++) {
-            for (int j =i+1; j <aux.clientes.length; j++) {
-                valor=aux.clientes[i].getNif().compareToIgnoreCase(aux.clientes[j].getNif());
+        for (int i = 0; i <this.clientes.length; i++) {
+            for (int j =i+1; j <this.clientes.length; j++) {
+                valor=this.clientes[i].getNif().compareToIgnoreCase(this.clientes[j].getNif());
                 if(valor>0){
-                    auxiliar=aux.clientes[i];
-                    aux.clientes[i]=aux.clientes[j];
-                    aux.clientes[j]=auxiliar;
+                    auxiliar=this.clientes[i];
+                    this.clientes[i]=this.clientes[j];
+                    this.clientes[j]=auxiliar;
                 }
             }
         }
@@ -171,30 +171,28 @@ vehiculos puede contener hasta 100 elementos */
             }
     
     //Método burbuja con vehiculos por matrícula
-    public void burbujaVehiculos(EmpresaAlquilerVehiculos aux){
+    public  void burbujaVehiculos(){
         Vehiculo auxiliar;
         int valor=0;
-        for (int i = 0; i <aux.vehiculos.length; i++) {
-            for (int j =i+1; j <aux.vehiculos.length; j++) {
-                valor=aux.vehiculos[i].getMatricula().compareTo(aux.vehiculos[j].getMatricula());
-                if(valor>0){
-                    auxiliar=aux.vehiculos[i];
-                    aux.vehiculos[i]=aux.vehiculos[j];
-                    aux.vehiculos[j]=auxiliar;
+        for (int i = 0; i <this.vehiculos.length; i++) {
+            for (int j =i+1; j <this.vehiculos.length; j++) {
+                valor=this.vehiculos[i].getMatricula().compareTo(this.vehiculos[j].getMatricula());
+                if(valor>0){//que [i] es mayor que [j]
+                    auxiliar=this.vehiculos[i];
+                    this.vehiculos[i]=this.vehiculos[j];
+                    this.vehiculos[j]=auxiliar;
                 }
             }
         }
     }
     
     //Búsqueda binaria con clientes
-    public void busquedaNif(){
-        
-        Scanner teclado=new Scanner(System.in);
-        int mitad;
+    public int busquedaNif(String aux){
+
+        int mitad=0;
         int limiteInferior = 0;
         int limiteSuperior = this.clientes.length-1;
-        System.out.println("Introduzca nif a buscar");
-        String buscado=teclado.nextLine();
+    
         int valor=0;
         boolean encontrado=false;
         
@@ -210,24 +208,22 @@ vehiculos puede contener hasta 100 elementos */
 //                limiteInferior = mitad + 1; // buscar en la segunda mitad
 //            }
 //        }
-        
-        while((limiteInferior<=limiteSuperior) && (!encontrado)){
+        while((limiteInferior<=limiteSuperior)){
             mitad=(limiteInferior + limiteSuperior)/2;
-            valor=this.clientes[mitad].getNif().compareTo(buscado);
+            valor=this.clientes[mitad].getNif().compareTo(aux);
+
             if(valor==0){
-                encontrado=true;
-            }else if(valor>0){
-                limiteInferior=mitad-1;
+                return mitad;
+            }else if(valor<0){
+                limiteInferior=mitad+1;
             }else{
                 limiteSuperior=mitad-1;
             }
             
-            if(encontrado){
-                System.out.println("Lo hemos encontrado");
-            }else{
-                System.out.println("No ha habido suerte");
-            }
+           
         }
+         return -1;
+         
 }
     
     //método recibirVehiculo
@@ -338,9 +334,9 @@ vehiculos puede contener hasta 100 elementos */
         prueba.imprimirClientes();
         
         System.out.println("------------------");
-        prueba.burbujaCliente(prueba);
+        prueba.burbujaCliente();
         System.out.println("ORDENADOS LOS CLIENTES");
         prueba.imprimirClientes();
-        prueba.busquedaNif();
+      
     }
 }
