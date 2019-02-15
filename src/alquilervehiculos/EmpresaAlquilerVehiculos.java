@@ -70,16 +70,6 @@ vehiculos puede contener hasta 100 elementos */
         }
     }
     
-    //Método que rellene vehiculos aleatorios
-    public EmpresaAlquilerVehiculos rellenarVehiculos(EmpresaAlquilerVehiculos aux){
-        
-        for (int i = 0; i <aux.vehiculos.length; i++) {
-            aux.vehiculos[i]=new Vehiculo();
-         //   System.out.println(aux.vehiculos[i]);
-        }
-        
-        return aux;
-    }
     
     //Método que rellene clientes aleatorios
     public EmpresaAlquilerVehiculos rellenarClientes(EmpresaAlquilerVehiculos aux){
@@ -89,6 +79,9 @@ vehiculos puede contener hasta 100 elementos */
         }
         return aux;
     }
+    
+    //Método rellenar vehículos aleatorios
+   
     public void rellenarVehiculos(){
         
         for (int i = 0; i <this.vehiculos.length; i++) {
@@ -225,6 +218,36 @@ vehiculos puede contener hasta 100 elementos */
          
 }
     
+    
+    //Método búsqueda binaria por matrícula
+    
+    public int busquedaMatricula(String aux){
+        
+        int mitad=0;
+        int limiteInferior = 0;
+        int limiteSuperior = this.vehiculos.length-1;
+    
+        int valor=0;
+        
+         while((limiteInferior<=limiteSuperior)){
+            mitad=(limiteInferior + limiteSuperior)/2;
+            valor=this.vehiculos[mitad].getMatricula().compareTo(aux);
+
+            if(valor==0){
+                return mitad;
+            }else if(valor<0){
+                limiteInferior=mitad+1;
+            }else{
+                limiteSuperior=mitad-1;
+            }
+            
+           
+        }
+         
+         return -1;
+         
+    }
+    
     //método recibirVehiculo
     public void recibirVehiculo(String matricula) {
 // busca el vehículo con la matrícula dada en el
@@ -320,7 +343,7 @@ vehiculos puede contener hasta 100 elementos */
         EmpresaAlquilerVehiculos prueba= new EmpresaAlquilerVehiculos("iouiuhi","Rosa","wwww.iowjfjhweof.com");
         
 
-        prueba.rellenarVehiculos(prueba);
+      
         prueba.imprimirVehiculos();
         System.out.println("---------------------------------");
         prueba.rellenarClientes(prueba);
