@@ -109,7 +109,7 @@ vehiculos puede contener hasta 100 elementos */
 
     //Método getCliente
     private Cliente getCliente(String nif) {
-        for (int i = 0; i < this.getTotalClientes(); i++) {
+        for (int i = 0; i < this.clientes.length; i++) {
             if (this.clientes[i].getNif().equals(nif)) {
                 return this.clientes[i];
             }
@@ -120,7 +120,7 @@ vehiculos puede contener hasta 100 elementos */
 
     //Método getVehiculos
     private Vehiculo getVehiculo(String matricula) {
-        for (int i = 0; i < this.getTotalVehiculos(); i++) {
+        for (int i = 0; i < this.vehiculos.length; i++) {
             if (this.vehiculos[i].getMatricula().equals(matricula)) {
                 return this.vehiculos[i];
             }
@@ -145,6 +145,7 @@ vehiculos puede contener hasta 100 elementos */
             this.totalAlquileres++;
         }
     }
+    
 
     //Método burbuja con cliente por nif
     public void burbujaCliente(){
