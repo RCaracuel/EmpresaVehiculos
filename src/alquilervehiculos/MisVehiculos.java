@@ -79,5 +79,16 @@ public class MisVehiculos {
             System.out.println("Lo hemos encontrado en la posición "+prueba.busquedaNif(aux));
         }
         
+        System.out.println("------------------------");
+        System.out.println("Introduzca matrícula a buscar");
+        String aux2=teclado.nextLine();
+        
+        prueba.busquedaMatricula(aux2);
+        
+        if(prueba.busquedaMatricula(aux2)==-1){
+            System.out.println("No se ha encontrado");
+        }else{
+            System.out.println("Lo hemos encontrado en la posición "+prueba.busquedaMatricula(aux2));
+        }
     }
 }
