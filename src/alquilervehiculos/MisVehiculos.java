@@ -90,5 +90,13 @@ public class MisVehiculos {
         }else{
             System.out.println("Lo hemos encontrado en la posición "+prueba.busquedaMatricula(aux2));
         }
+        
+      prueba.alquilarVehiculo(aux2, aux, 0);
+        
     }
+        
+        
+   
+   
 }
+
